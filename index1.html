@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Design Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        /* Startowy ekran */
+        #start-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 1s ease;
+        }
+
+        #start-screen h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        #start-screen p {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        /* Portfolio */
+        #portfolio {
+            display: none;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        #portfolio h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #111;
+        }
+
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            min-height: 400px; /* wolne miejsce na zdjęcia */
+        }
+
+        #gallery div {
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Startowy ekran -->
+    <div id="start-screen">
+        <h1>NIGHT DESIGN</h1>
+        <p>Kliknij aby kontynuować</p>
+    </div>
+
+    <!-- Portfolio -->
+    <div id="portfolio">
+        <h2>PORTFOLIO</h2>
+        <div id="gallery">
+            <!-- Tutaj możesz wklejać zdjęcia -->
+        </div>
+    </div>
+
+    <script>
+        const startScreen = document.getElementById('start-screen');
+        const portfolio = document.getElementById('portfolio');
+
+        startScreen.addEventListener('click', () => {
+            startScreen.style.opacity = 0; // fade out start screen
+            setTimeout(() => {
+                startScreen.style.display = 'none';
+                portfolio.style.display = 'block';
+                setTimeout(() => {
+                    portfolio.style.opacity = 1; // fade in portfolio
+                }, 50);
+            }, 1000); // czas zgodny z transition
+        });
+    </script>
+
+</body>
+</html>
